@@ -1,5 +1,6 @@
 #Libs necessarias
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 #Faz o get das informacoes
@@ -25,3 +26,6 @@ if msg:
     print(0)
 else:
     print("Impressora\\s: {}".format(" - ".join(array_valores)))
+    arquivo = open("registro.txt", "a+")
+    arquivo.write("Data: {} - Impressora\\s: {}\n".format(datetime.today(), " - ".join(array_valores)))
+    arquivo.close()
